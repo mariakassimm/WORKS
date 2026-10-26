@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="m" x1="8" y1="6" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".5" stop-color="#B4B4B4"/><stop offset="1" stop-color="#6A6A6A"/>
+    </linearGradient>
+    <linearGradient id="b" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#C23A52"/><stop offset="1" stop-color="#7A1E2C"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#090909"/>
+  <circle cx="32" cy="32" r="29" fill="none" stroke="url(#m)" stroke-width="2.4"/>
+  <path d="M37.12 3.95 A29 29 0 0 1 60.4 27" fill="none" stroke="url(#b)" stroke-width="3.8"/>
+  <circle cx="32" cy="32" r="23.5" fill="none" stroke="#8C8C8C" stroke-width="1.2" stroke-dasharray="1.6 4.68"/>
+  <path d="M15.5 21.5 L23.5 43.5 L32 27 L40.5 43.5 L48.5 21.5" fill="none" stroke="#F5F5F5" stroke-width="4.6" stroke-linejoin="miter" stroke-miterlimit="10"/>
+  <path d="M23.5 43.5 L32 27 L40.5 43.5" fill="none" stroke="url(#b)" stroke-width="4.6" stroke-linejoin="miter" stroke-miterlimit="10"/>
+</svg>
