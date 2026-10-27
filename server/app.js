@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const mongoose = require("mongoose");
 const cors = require("cors");
 const helmet = require("helmet");
 const morgan = require("morgan");
@@ -43,6 +44,21 @@ if (process.env.NODE_ENV !== "production") app.use(morgan("dev"));
 app.use("/api", apiLimiter);
 
 app.get("/api/health", (req, res) => res.json({ success: true, message: "WORKS API is running." }));
+
+// Connect to MongoDB on demand (needed on Vercel, where server.js never runs).
+let dbPromise;
+app.use(async (req, res, next) => {
+  if (mongoose.connection.readyState === 1) return next();
+  try {
+    dbPromise = dbPromise || mongoose.connect(process.env.MONGO_URI, { serverSelectionTimeoutMS: 8000 });
+    await dbPromise;
+    next();
+  } catch (err) {
+    dbPromise = null;
+    next(err);
+  }
+});
+
 app.use("/api/products", productRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/reviews", reviewRoutes);
