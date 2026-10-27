@@ -4,6 +4,14 @@ A premium automotive-parts catalogue and showcase website. Customers browse
 used engine and body parts and contact the business directly, there is no
 cart, checkout, payment gateway, or customer account system, by design.
 
+# WORKS
+
+Used automotive parts catalogue with an admin inventory panel.
+
+🔗 **Live demo:** [works-ten-navy.vercel.app](https://works-ten-navy.vercel.app)
+
+**Tech stack:** React, Vite, Tailwind CSS, Framer Motion, Node.js, Express, MongoDB Atlas, Cloudinary, Vercel
+
 ## Documentation
 
 This README covers running the project locally. For everything else, see:
