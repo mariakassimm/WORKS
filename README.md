@@ -106,19 +106,13 @@ through the backend to Cloudinary (in memory, never written to disk) —
 only the resulting URL is stored in MongoDB. Required env vars:
 `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET`.
 
-## Resend (Email)
-
-Powers the on-site inquiry form. Requires a verified sending domain — see
-`DEPLOYMENT_HANDOFF.md` §11 for setup steps and what has/hasn't been
-tested (no real send has been verified; the integration itself has been
-tested end-to-end against Resend's actual API surface).
 
 ## Build Commands
 
 ```bash
-cd client && npm run build   # production frontend build
-cd client && npm run lint    # 0 errors expected
-cd server && npm start       # production backend start
+cd client && npm run build   
+cd client && npm run lint    
+cd server && npm start       
 ```
 
 ## Production Notes
@@ -146,17 +140,3 @@ Cloudinary images uploaded during an unsaved product form aren't
 auto-deleted if the admin cancels instead of saving — not a security issue, just a storage
 housekeeping note.
 
-## Dependency Note
-
-Requires **Node 20.19+** (client: Vite 7 / React Router 7; server runs on 18+).
-`npm audit --omit=dev` reports **0 vulnerabilities** for both the client and
-the server. `npm audit` on the client still lists dev-only advisories in
-Tailwind CSS 3's own transitive build dependencies (`braces`, `micromatch`,
-`postcss-selector-parser`…). They are not shipped to browsers; the fix is a
-migration to Tailwind 4, a separate piece of work.
-
-## Tests
-
-- `cd server && npm test` — 20 API tests (validation, header injection, CORS,
-  rate limits, CSRF, error handling). No database or email account needed.
-- `cd client && npm run lint && npm run build`.
